@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Used in Spinner/spinner_2.java -->
+    <string-array name="itemState">
+        <item>Neuf</item>
+        <item>D'occasion</item>
+        <item>Reconditioné</item>
+    </string-array>
+    <string-array name="itemSoldState">
+        <item>Vendu</item>
+        <item>En Vente</item>
+    </string-array>
+</resources>

@@ -1,0 +1,13 @@
+<menu  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="schemas.android.com/tools"
+    tools:context="com.example.sample.YourActivity"
+    xmlns:LBJ="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/action_additem"
+        android:icon="@drawable/baseline_add_white_18dp"
+        android:title="add"
+        LBJ:showAsAction="ifRoom"
+        />
+
+</menu>

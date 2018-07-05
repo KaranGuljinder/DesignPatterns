@@ -3,6 +3,7 @@ package mohkarmon.a4moc.lebonjoint.Screens;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -45,8 +46,14 @@ public class BrowseAds extends Fragment {
 
         catAdapter.notifyDataSetChanged();
         categoriesRecycler.setAdapter(catAdapter);
+        RecyclerView.ItemDecoration dividerItemDecorationVert = new DividerItemDecoration(getContext(),DividerItemDecoration.VERTICAL);
+        RecyclerView.ItemDecoration dividerItemDecorationHor = new DividerItemDecoration(getContext(),DividerItemDecoration.HORIZONTAL);
+        categoriesRecycler.addItemDecoration(dividerItemDecorationHor);
+        categoriesRecycler.addItemDecoration(dividerItemDecorationVert);
         GridLayoutManager glm = new GridLayoutManager(getActivity(),2);
         categoriesRecycler.setLayoutManager(glm);
+        categoriesRecycler.setHasFixedSize(true);
+
         return rootView;
     }
 

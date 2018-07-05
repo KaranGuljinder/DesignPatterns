@@ -1,9 +1,7 @@
 package mohkarmon.a4moc.lebonjoint.Adapters;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +9,6 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import mohkarmon.a4moc.lebonjoint.Models.Favorite;
 import mohkarmon.a4moc.lebonjoint.Models.Item;
 import mohkarmon.a4moc.lebonjoint.R;
 import mohkarmon.a4moc.lebonjoint.Screens.Ad;
@@ -37,7 +34,7 @@ public class ItemsAdapter extends RecyclerView.Adapter  {
         View view;
 
         view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.favorite_unit, parent, false);
+                .inflate(R.layout.item_unit, parent, false);
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
