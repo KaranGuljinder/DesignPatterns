@@ -4,16 +4,13 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class User {
-
+    @SerializedName("id")
+    @Expose
+    private int id;
     @SerializedName("UserName")
     @Expose
     private String userName;
-    @SerializedName("Password")
-    @Expose
-    private String password;
-    @SerializedName("City")
-    @Expose
-    private String city;
+
     @SerializedName("nbAds")
     @Expose
     private int nbAds;
@@ -36,21 +33,25 @@ public class User {
 
     /**
      *
+     * @param id
      * @param authMethod
      * @param email
      * @param nbAds
      * @param nbSold
      * @param userName
-     * @param password
-     * @param city
      */
-    public User(String userName, String password, String city, int nbAds, int nbSold, String email, String authMethod) {
+    public User(int id ,String userName, int nbAds, int nbSold, String email, String authMethod) {
         super();
+        this.id = id;
         this.userName = userName;
-        this.password = password;
-        this.city = city;
         this.nbAds = nbAds;
         this.nbSold = nbSold;
+        this.email = email;
+        this.authMethod = authMethod;
+    }
+
+    public User(String userName, String email, String authMethod) {
+        this.userName = userName;
         this.email = email;
         this.authMethod = authMethod;
     }
@@ -63,21 +64,7 @@ public class User {
         this.userName = userName;
     }
 
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
 
     public int getNbAds() {
         return nbAds;
@@ -93,6 +80,10 @@ public class User {
 
     public void setNbSold(int nbSold) {
         this.nbSold = nbSold;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getEmail() {

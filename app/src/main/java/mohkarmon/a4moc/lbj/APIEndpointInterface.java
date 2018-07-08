@@ -30,7 +30,7 @@ public interface APIEndpointInterface {
     Call<Category> createCategory(@Body Category category);
 
     @POST("user/")
-    Call<User> createUser(@Body User user);
+    Call<User> registerUser(@Body User user);
 
 
 
