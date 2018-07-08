@@ -1,6 +1,4 @@
-package mohkarmon.a4moc.lebonjoint.Models;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+package mohkarmon.a4moc.lbj.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

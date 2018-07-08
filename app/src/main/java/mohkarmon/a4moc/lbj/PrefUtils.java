@@ -1,4 +1,4 @@
-package mohkarmon.a4moc.lebonjoint;
+package mohkarmon.a4moc.lbj;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
@@ -7,7 +7,7 @@ import android.util.Log;
 
 public class PrefUtils {
 
-    private Activity activity;
+    private final Activity activity;
 
     // Constructor
     public PrefUtils(Activity activity) {

@@ -5,7 +5,7 @@
     android:id="@+id/adsList"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Screens.AdsList">
+    tools:context="mohkarmon.a4moc.lbj.Screens.AdsList">
 
     <!-- TODO: Update blank fragment layout -->
 

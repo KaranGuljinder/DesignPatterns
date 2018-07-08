@@ -6,7 +6,7 @@
     <item
         android:id="@+id/action_additem"
         android:icon="@drawable/baseline_add_white_18dp"
-        android:title="add"
+        android:title="@string/add"
         LBJ:showAsAction="ifRoom"
         />
 

@@ -1,7 +1,30 @@
 <resources>
-    <string name="app_name">LeBonJoint</string>
+    <string name="app_name">LBJ</string>
     <string name="title_activity_login">LoginActivity</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_screen">Screen</string>
+    <string name="accueil">Accueil</string>
+    <string name="favoris">Favoris</string>
+    <string name="profile">Profile</string>
+    <string name="City">City:</string>
+    <string name="State">Etat:</string>
+    <string name="dummy">TextView</string>
+    <string name="nbofads">Nombre d\'annonces :</string>
+    <string name="solditem">Objects Vendus :</string>
+    <string name="logout">Deconnexion</string>
+    <string name="myads">Mes Annonces</string>
+    <string name="login">Connexion</string>
+    <string name="add">Ajouter</string>
+    <string name="cancel">Annuler</string>
+    <string name="name">Nom :</string>
+    <string name="description">Description :</string>
+    <string name="favs">Favoris :</string>
+    <string name="call">Appeler</string>
+    <string name="msg">Message</string>
+    <string name="price">Prix</string>
+    <string name="categories">Categories :</string>
+    <string name="phonenb">Numéro de tel</string>
+
 </resources>

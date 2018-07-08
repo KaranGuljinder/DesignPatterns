@@ -1,4 +1,4 @@
-package mohkarmon.a4moc.lebonjoint.Screens;
+package mohkarmon.a4moc.lbj.Screens;
 
 
 import android.os.Bundle;
@@ -11,20 +11,25 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-import mohkarmon.a4moc.lebonjoint.Adapters.CategoriesAdapter;
-import mohkarmon.a4moc.lebonjoint.Models.Category;
-import mohkarmon.a4moc.lebonjoint.R;
+import mohkarmon.a4moc.lbj.APIEndpointInterface;
+import mohkarmon.a4moc.lbj.Adapters.CategoriesAdapter;
+import mohkarmon.a4moc.lbj.Models.Category;
+import mohkarmon.a4moc.lbj.R;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class BrowseAds extends Fragment {
 
-    private RecyclerView categoriesRecycler;
     private CategoriesAdapter catAdapter;
-    private List<Category> categoryList = new ArrayList<>();
+    private final List<Category> categoryList = new ArrayList<>();
+    private APIEndpointInterface apiEndpointInterface;
 
     public BrowseAds() {
     }
@@ -34,15 +39,10 @@ public class BrowseAds extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_browse_ads, container, false);
-        categoriesRecycler = rootView.findViewById(R.id.categoriesRecycler);
+        RecyclerView categoriesRecycler = rootView.findViewById(R.id.categoriesRecycler);
         catAdapter = new CategoriesAdapter(this.getContext(),categoryList);
-        Category cat = new Category();
-        cat.setName("test");
-        categoryList.add(cat);
-        categoryList.add(cat);
-        categoryList.add(cat);
-        categoryList.add(cat);
-        categoryList.add(cat);
+
+        apiEndpointInterface = APIClient.getClient().create(APIEndpointInterface.class);
 
         catAdapter.notifyDataSetChanged();
         categoriesRecycler.setAdapter(catAdapter);
@@ -53,8 +53,29 @@ public class BrowseAds extends Fragment {
         GridLayoutManager glm = new GridLayoutManager(getActivity(),2);
         categoriesRecycler.setLayoutManager(glm);
         categoriesRecycler.setHasFixedSize(true);
+        getCategories();
 
         return rootView;
+    }
+
+    private void getCategories(){
+        categoryList.clear();
+        catAdapter.notifyDataSetChanged();
+        Call< Category[]> call = apiEndpointInterface.getCategories();
+        call.enqueue(new Callback< Category[]>() {
+
+            @Override
+            public void onResponse(Call< Category[]> call, Response< Category[]> response) {
+                Category[] categories = response.body();
+                categoryList.addAll(Arrays.asList(categories));
+                catAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call< Category[]> call, Throwable t) {
+
+            }
+        });
     }
 
 }

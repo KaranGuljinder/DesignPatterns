@@ -1,12 +1,32 @@
-package mohkarmon.a4moc.lebonjoint.Models;
+package mohkarmon.a4moc.lbj.Models;
 
 public class ConnectedUser {
-    private static ConnectedUser INSTANCE = new ConnectedUser();
+    private static final ConnectedUser INSTANCE = new ConnectedUser();
 
     private String username;
     private int userid;
+
+    public int getNbAds() {
+        return nbAds;
+    }
+
+    public void setNbAds(int nbAds) {
+        this.nbAds = nbAds;
+    }
+
+    public void setNbSold(int nbSold) {
+        this.nbSold = nbSold;
+    }
+
+    public int getNbSold() {
+        return nbSold;
+
+    }
+
     private String authType;
     private String email;
+    private int nbAds;
+    private int nbSold;
 
 
 
@@ -27,7 +47,7 @@ public class ConnectedUser {
         this.email = email;
     }
 
-    private ConnectedUser() {};
+    private ConnectedUser() {}
 
     public String getUsername() {
         return username;

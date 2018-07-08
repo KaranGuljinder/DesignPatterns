@@ -1,4 +1,4 @@
-package mohkarmon.a4moc.lebonjoint.Screens;
+package mohkarmon.a4moc.lbj.Screens;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -8,8 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIClient {
 
-   private static Retrofit retrofit = null;
-   public static final String BASE_URL = "http://10.0.2.2:3000/api/";
+    private static final String BASE_URL = "http://10.0.2.2:3000/api/";
 
    public static Retrofit getClient() {
 
@@ -18,7 +17,7 @@ public class APIClient {
        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
 
-       retrofit = new Retrofit.Builder()
+       Retrofit retrofit = new Retrofit.Builder()
                .baseUrl(BASE_URL)
                .addConverterFactory(GsonConverterFactory.create())
                .client(client)

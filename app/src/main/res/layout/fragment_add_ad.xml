@@ -4,48 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Screens.AddAd">
+    tools:context="mohkarmon.a4moc.lbj.Screens.AddAd">
 
     <!-- TODO: Update blank fragment layout -->
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/addItemPhoto"
         android:layout_width="174dp"
         android:layout_height="192dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:src="@mipmap/ic_launcher"
-        app:layout_constraintEnd_toStartOf="@+id/textView11"
-        app:layout_constraintStart_toEndOf="@+id/textView12"
+        android:src="@mipmap/addphoto"
+        app:layout_constraintEnd_toStartOf="@+id/additemButton"
+        app:layout_constraintStart_toEndOf="@+id/addItemCancel"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/additemButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/add"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="Ajouter"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/addItemPhoto"
+        app:layout_constraintTop_toTopOf="parent"
+ />
+
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/addItemCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="Annuler"
+        android:text="@string/cancel"
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/addItemPhoto"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -55,11 +58,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:hint="Nom :"
+        android:layout_marginTop="16dp"
+        android:hint="@string/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/addItemPhoto"
         app:met_floatingLabel="highlight"
         app:met_floatingLabelText="Nom :" />
 
@@ -71,7 +74,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:hint="Description :"
+        android:hint="@string/description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addItemName"
@@ -81,26 +84,43 @@
     <Spinner
         android:id="@+id/addItemState"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="38dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addItemDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/addItemPhone" />
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/addItemPrice"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        app:met_floatingLabel="highlight"
-        app:met_floatingLabelText="Price :"
-        android:hint="Price"
+        android:hint="@string/price"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addItemState" />
+        app:layout_constraintTop_toBottomOf="@+id/addItemDescription"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelText="Price :" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/addItemPhone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/phonenb"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addItemPrice"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelText="@string/phonenb" />
 </android.support.constraint.ConstraintLayout>

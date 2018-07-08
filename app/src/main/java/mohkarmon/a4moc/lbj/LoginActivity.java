@@ -1,11 +1,8 @@
-package mohkarmon.a4moc.lebonjoint;
+package mohkarmon.a4moc.lbj;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
@@ -18,21 +15,21 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
-import mohkarmon.a4moc.lebonjoint.Models.ConnectedUser;
-import mohkarmon.a4moc.lebonjoint.Models.User;
-import mohkarmon.a4moc.lebonjoint.Screens.APIClient;
+import mohkarmon.a4moc.lbj.Models.User;
+import mohkarmon.a4moc.lbj.Models.ConnectedUser;
+import mohkarmon.a4moc.lbj.Screens.APIClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    int RC_SIGN_IN = 573;
-    GoogleSignInClient mGoogleSignInClient;
-    SignInButton googleLoginButton;
-    String TAG = "LOGIN";
-    PrefUtils prefUtils;
-    APIEndpointInterface apiEndpointInterface;
+    private final int RC_SIGN_IN = 573;
+    private GoogleSignInClient mGoogleSignInClient;
+    private SignInButton googleLoginButton;
+    private final String TAG = "LOGIN";
+    private PrefUtils prefUtils;
+    private APIEndpointInterface apiEndpointInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
-                .requestIdToken("113330050416-2q17qj5mcib024khp4njs95hnocjbe4a.apps.googleusercontent.com")
+                .requestIdToken("147401436499-8v2712bn2amuldvnc6pkm5kfsak52eqg.apps.googleusercontent.com")
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         googleLoginButton =  findViewById(R.id.btn_login_google);
@@ -80,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             String googleToken = account.getIdToken();
             prefUtils.saveGOAccessToken(googleToken);
-         //   checkLoggedInOrReg(account.getEmail(),"Google");
+            checkLoggedInOrReg(account.getEmail(),account.getGivenName());
 
         } catch (ApiException e) {
             Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
@@ -120,33 +117,23 @@ public class LoginActivity extends AppCompatActivity {
         //  updateUI(account);
     }
 
-    /*private void checkLoggedInOrReg(final String email, final String authType){
+    private void checkLoggedInOrReg(final String email, final String username){
         Call<User> call = apiEndpointInterface.getUser(email);
         call.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 assert response.body() != null;
                 if(response.body() != null){
-                    if(response.body().isFirstConnexion()){
-                        User newUser = response.body();
-                        newUser.setId(response.body().getId());
-                        Bundle bundle = new Bundle();
-                        bundle.putParcelable("User",newUser);
-                        Intent intent = new Intent(Login.this, FirstConnection.class);
-                        intent.putExtras(bundle);
-                        startActivity(intent);
-                        finish();
-                    }
-                    else {
-                        Log.d("tozz","no exiss");
 
-                        Intent intent = new Intent(Login.this, MainActivity.class);
+
+
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
-                    }
+
                 }
                 else {
-                    RegisterUser(profilePic,email,authType);
+                    RegisterUser(email,username, "Google");
                 }
 
             }
@@ -159,6 +146,5 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-*/
 
 }
