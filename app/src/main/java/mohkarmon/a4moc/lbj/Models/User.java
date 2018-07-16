@@ -3,7 +3,9 @@ package mohkarmon.a4moc.lbj.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class User {
+import mohkarmon.a4moc.lbj.Facade.Informations;
+
+public class User implements Informations{
     @SerializedName("id")
     @Expose
     private int id;
@@ -56,15 +58,15 @@ public class User {
         this.authMethod = authMethod;
     }
 
-    public String getUserName() {
+    @Override
+    public String getUsername() {
         return userName;
     }
 
-    public void setUserName(String userName) {
+    @Override
+    public void setUsername(String userName) {
         this.userName = userName;
     }
-
-
 
     public int getNbAds() {
         return nbAds;

@@ -2,6 +2,8 @@ package mohkarmon.a4moc.lbj.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import mohkarmon.a4moc.lbj.Template.Data;
+
 public class Favorite {
 
     @SerializedName("userID")
@@ -44,5 +46,6 @@ public class Favorite {
     public void setItemID(int itemID) {
         this.itemID = itemID;
     }
+
 
 }

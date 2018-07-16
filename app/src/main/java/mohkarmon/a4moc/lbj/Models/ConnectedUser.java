@@ -1,6 +1,8 @@
 package mohkarmon.a4moc.lbj.Models;
 
-public class ConnectedUser {
+import mohkarmon.a4moc.lbj.Facade.Informations;
+
+public class ConnectedUser implements Informations {
     private static final ConnectedUser INSTANCE = new ConnectedUser();
 
     private String username;
@@ -47,7 +49,7 @@ public class ConnectedUser {
         this.email = email;
     }
 
-    private ConnectedUser() {}
+    public ConnectedUser() {}
 
     public String getUsername() {
         return username;

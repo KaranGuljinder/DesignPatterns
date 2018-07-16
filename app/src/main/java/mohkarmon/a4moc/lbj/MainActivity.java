@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 if (response.body() != null) {
 
                     ConnectedUser cUser = ConnectedUser.getInstance();
-                    cUser.setUsername(response.body().getUserName());
+                    cUser.setUsername(response.body().getUsername());
                     cUser.setUserid(response.body().getId());
                     cUser.setAuthType(response.body().getAuthMethod());
                     cUser.setEmail(response.body().getEmail());

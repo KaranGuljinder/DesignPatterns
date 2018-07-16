@@ -7,7 +7,9 @@ import android.os.Parcelable.Creator;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Item implements Parcelable
+import mohkarmon.a4moc.lbj.Template.Data;
+
+public class Item  extends Data implements Parcelable
 {
 
     @SerializedName("Name")
@@ -145,11 +147,14 @@ public class Item implements Parcelable
         this.sellerID = sellerID;
     }
 
-    public Integer getId() {
-        return id;
+
+    @Override
+    public int getId() {
+        return 0;
     }
 
-    public void setId(Integer id) {
+    @Override
+    public void setId(int id) {
         this.id = id;
     }
 

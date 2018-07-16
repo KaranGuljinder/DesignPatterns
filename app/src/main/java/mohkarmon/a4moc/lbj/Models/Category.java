@@ -3,7 +3,9 @@ package mohkarmon.a4moc.lbj.Models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Category {
+import mohkarmon.a4moc.lbj.Template.Data;
+
+public class Category extends Data {
 
     @SerializedName("Name")
     @Expose
@@ -35,10 +37,12 @@ public class Category {
         this.id = id;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -51,10 +55,12 @@ public class Category {
         this.image = image;
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public void setId(int id) {
         this.id = id;
     }
